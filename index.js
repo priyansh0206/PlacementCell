@@ -5,6 +5,9 @@ const port = 8000;
 //variable app for using the express
 const app = express();
 
+//variable db for calling the database connection
+const db = require('./config/mongoose');
+
 app.use(express.urlencoded());
 //setup the views engine
 app.set('view engine', 'ejs');
