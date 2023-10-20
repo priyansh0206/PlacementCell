@@ -1,0 +1,14 @@
+.navbar-container{
+    background-color: rgba(5, 100, 22, 0.8);
+    .navbar-nav{
+        li{
+            a{
+                color: white;
+            }
+            a:hover{
+                color: black;
+                background-color: #40ef83;
+            }
+        }
+    }
+}

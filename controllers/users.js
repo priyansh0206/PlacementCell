@@ -1,12 +1,18 @@
 //exporting the Users controller
 module.exports.signIn = function(req, res){
     res.render('users-sign-in', {
-        title : 'Users SignIn'
+        title : 'User SignIn'
     });
 }
 
-module.exports.SignUp = function(req, res){
+module.exports.signUp = function(req, res){
     res.render('users-sign-up', {
-        title : 'Users SignUp'
+        title : 'User SignUp'
+    });
+}
+
+module.exports.profile = function(req, res){
+    res.render('profile', {
+        title : 'User Profile'
     });
 }

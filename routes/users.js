@@ -7,7 +7,8 @@ const controller = require('../controllers/users');
 
 //router get and post functions for the routing
 router.get('/sign-in', controller.signIn);
-router.get('/sign-up', controller.SignUp);
+router.get('/sign-up', controller.signUp);
+router.get('/profile', controller.profile);
 
 //exporting the router to index file of routes folder
 module.exports = router;

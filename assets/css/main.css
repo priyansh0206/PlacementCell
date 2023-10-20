@@ -1,0 +1,10 @@
+body {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; }
+  body .overlay {
+    background-color: rgba(124, 208, 236, 0.3);
+    height: 100vh;
+    width: 100vw; }

@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<div class="navbar-container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex">
+            <a class="navbar-brand ms-1" href="/dashboard"><img src="/images/logo.png" alt="Logo Pic" width="230px"
+                    height="46px" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-3 my-4 my-lg-0">
+                    <img class="mx-2" src="/images/user_profile.png" alt="User Profile" height="40px" width="40px">
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="nav-dropdown dropdown-menu bg-dark">
+                            <li><a class="dropdown-item" href="/users/profile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="/">Change Picture</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-light">
+                            </li>
+                            <li><a class="dropdown-item" href="/users/sign-in">Sign Out</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/jobs/portal">Job Portal</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/students/profile">Students</a>
+                    </li>
+                </ul>
+                <!-- <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+</div>
