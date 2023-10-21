@@ -1,0 +1,41 @@
+.titles {
+  margin: 20px 0px;
+  text-align: center;
+  width: 100%; }
+  .titles .heading-titles {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .titles h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 20px #3c8321;
+    font-family: monospace; }
+  .titles h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ec6767;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px 4px #ffffff;
+    text-align: center;
+    margin: 0px 20px; }
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; }
+  main .students-container {
+    width: 45%; }
+  main .jobs-container {
+    width: 45%; }
+
+.accordion-button::after {
+  background-color: #28851f; }
+
+@media screen and (max-width: 600px) {
+  .titles h2 {
+    font-size: 2.5rem; }
+  .titles h3 {
+    font-size: 1.2rem; } }
