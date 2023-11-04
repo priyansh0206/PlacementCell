@@ -1,0 +1,43 @@
+<style>
+    input, select{
+        width: 70%;
+        float: right;
+    }
+</style>
+
+<label for="student_name">Full Name:</label>
+<input id="student_name" name="Name" type="text" placeholder="Enter The Name...">
+<br><br>
+<label for="student_course">Course Name:</label>
+<select name="Course" id="student_course" required>
+    <option value="" disabled selected>Select a Course</option>
+    <option value="Python">Python</option>
+    <option value="Java">Java</option>
+    <option value="Java">Java</option>
+    <option value="Backend">Backend</option>
+    <option value="Full Stack">Full Stack</option>
+</select>
+<br><br>
+<label for="student_email">Email:</label>
+<input id="student_email" name="Email" type="email" placeholder="Enter The Email..." required>
+<br><br>
+<label for="student_dob">DOB:</label>
+<input id="student_dob" name="DOB" type="date" required>
+<br><br>
+<label for="student_grade">Grades:</label>
+<input id="student_grade" name="Grades" type="number" placeholder="in between 0 to 100" required min="0" max="100">
+<br><br>
+<label for="student_address">Address:</label>
+<input id="student_address" name="Address" type="text" placeholder="Enter The Address...">
+<br><br>
+<label for="student_city">City:</label>
+<input id="student_name" name="City" type="text" placeholder="Enter The City...">
+<br><br>
+<label for="student_pincode">Pincode:</label>
+<input id="student_pincode" name="Pincode" type="number" placeholder="Enter The Pincode...">
+
+
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById("student_dob").setAttribute('max', today);
+</script>
