@@ -7,6 +7,8 @@ const controller = require('../controllers/students');
 
 //router get and post functions for the routing
 router.get('/profile', controller.studentProfile);
+router.post('/create-student', controller.createStudent);
+router.get('/delete-student/:id', controller.deleteStudent);
 
 //exporting the router to index file of routes folder
 module.exports = router;

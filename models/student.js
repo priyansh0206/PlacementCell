@@ -10,6 +10,13 @@ const studentSchema = new mongoose.Schema({
         type: String,
         default: "NULL"
     },
+    mentorName: {
+        type: String,
+        default: "NULL"
+    },
+    mentorID: {
+        type: String,
+    },
     email: {
         type: String,
         required: true,

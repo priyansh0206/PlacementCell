@@ -1,0 +1,5 @@
+.details-table {
+  width: 100%; }
+  .details-table th, .details-table td {
+    width: 12.5%;
+    padding: 0px 2px; }

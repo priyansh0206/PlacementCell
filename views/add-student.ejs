@@ -6,16 +6,24 @@
 </style>
 
 <label for="student_name">Full Name:</label>
-<input id="student_name" name="Name" type="text" placeholder="Enter The Name...">
+<input id="student_name" name="Name" type="text" placeholder="Enter The Name..." required>
 <br><br>
 <label for="student_course">Course Name:</label>
 <select name="Course" id="student_course" required>
     <option value="" disabled selected>Select a Course</option>
     <option value="Python">Python</option>
     <option value="Java">Java</option>
-    <option value="Java">Java</option>
+    <option value="Frontend">Frontend</option>
     <option value="Backend">Backend</option>
     <option value="Full Stack">Full Stack</option>
+</select>
+<br><br>
+<label for="student_mentor">Mentor Name:</label>
+<select name="Mentor" id="student_mentor" required>
+    <option value="" disabled selected>Select the Mentor</option>
+    <% for(u of user){ %>
+        <option value="<%= u._id %>"><%= u.firstName %> <%= u.lastName %></option>
+    <% } %>
 </select>
 <br><br>
 <label for="student_email">Email:</label>
