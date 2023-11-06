@@ -14,6 +14,18 @@ const sassMiddleWare = require('node-sass-middleware');
 //variable for using the express layouts for enabling one page view
 const expressLayouts = require('express-ejs-layouts');
 
+//variable for using the sessions
+const session = require('express-session');
+
+//variable for using the sessions using MongoDB
+const MongoStore = require('connect-mongo');
+
+//variable for using the Flash Alerts
+const flash = require('connect-flash');
+
+//variable for accessing the custom middlewares
+const customMware = require('./config/middleware');
+
 app.use(express.urlencoded());
 //setup the SASS middleware for using the SCSS
 app.use(sassMiddleWare({
@@ -30,6 +42,28 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 //setup for using the assets in ejs or views
 app.use(express.static('assets'));
+
+
+//setup for using the sessions in project using MongoDB
+const store = MongoStore.create({
+    mongoUrl: 'mongodb://127.0.0.1:27017/code_major_dev', // Replace with your MongoDB connection URL
+    collectionName: 'sessions', // Optional: Specify the name of the collection (default is 'sessions')
+    autoRemove: 'disabled', // Optional: Disable automatic session removal
+});
+//setup for using the Sessions with help of MongoStore
+app.use(session({
+    name: 'code_major',
+    secret: 'MakeMyPlacement',
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    },
+    store: store
+}));
+//setup the flash notification for the popups
+app.use(flash());
+app.use(customMware.setFlash);
 
 //setting up the host or the main page to render from the routes folder
 app.use('/', require('./routes'));

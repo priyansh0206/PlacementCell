@@ -10,5 +10,7 @@ router.get('/sign-in', controller.signIn);
 router.get('/sign-up', controller.signUp);
 router.get('/profile', controller.profile);
 
+router.post('/create-user', controller.createUser);
+
 //exporting the router to index file of routes folder
 module.exports = router;
