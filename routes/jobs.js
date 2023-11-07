@@ -7,6 +7,7 @@ const controller = require('../controllers/jobs');
 
 //router get and post functions for the routing
 router.get('/portal', controller.jobPortal);
+router.post('/create-interview', controller.createInterview);
 
 //exporting the router to index file of routes folder
 module.exports = router;

@@ -1,0 +1,67 @@
+<div class="container my-3">
+    <div class="d-flex flex-row-reverse">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add Interview
+        </button>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/jobs/create-interview" method="POST">
+            <div class="modal-content bg-dark" style="opacity: 0.9;">
+                <div class="modal-header">
+                    <h1 class="modal-title text-light fs-5" id="staticBackdropLabel">Enter Interview Detials</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-light">
+                    <style>
+                        input,
+                        select {
+                            width: 50%;
+                            float: right;
+                        }
+                    </style>
+                    <label for="company_name">Company Name:</label>
+                    <input id="company_name" name="Company" type="text" placeholder="Enter The Company Name..."
+                        required>
+                    <br><br>
+                    <label for="requirement">Requiremt for:</label>
+                    <input id="requirement" name="Requirement" type="text" placeholder="Enter The Required Job Role..."
+                        required>
+                    <br><br>
+                    <label for="email">Company or Recruiter's Email :</label>
+                    <input id="email" name="Email" type="email" placeholder="Enter The Email..." required>
+                    <br><br>
+                    <label for="date">Date of Interview:</label>
+                    <input id="date" name="Date" type="date" required>
+                    <br><br>
+                    <label for="openings">Number of Openings:</label>
+                    <input id="openings" name="Openings" type="number" placeholder="Enter the number" min="1">
+                    <br><br>
+                    <label for="location">Location:</label>
+                    <input id="location" name="Location" type="text" placeholder="Enter The City...">
+                    <br><br>
+
+                    <script>
+                        var today = new Date();
+                        var dd = String(today.getDate()).padStart(2, '0');
+                        var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+                        var yyyy = today.getFullYear();
+                        today = yyyy + '-' + mm + '-' + dd;
+                        document.getElementById("date").setAttribute('min', today);
+                    </script>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Add Interview</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

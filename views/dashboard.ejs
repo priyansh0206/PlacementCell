@@ -19,113 +19,69 @@
 
 <main>
   <div class="students-container">
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#s1" aria-expanded="false" aria-controls="s1">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="s1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <% for(s of student){ %>
+        <div class="accordion-item bg-success-subtle my-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-<%= s._id %>" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+              <%= s.name %>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-<%= s._id %>" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <table class="details-table">
+                <tr>
+                  <th>Course Name</th>
+                  <th>Email</th>
+                  <th>Date of Birth</th>
+                  <th>Grades</th>
+                </tr>
+                <tr>
+                  <td><%= s.courseName %></td>
+                  <td><%= s.email %></td>
+                  <td><%= s.dob.split('-').reverse().join('-') %></td>
+                  <td><%= s.grades %></td>
+                </tr>
+              </table>
+              <br>
+              <div class="d-flex flex-row-reverse mt-2">
+                <!-- <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a> -->
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#s2" aria-expanded="false" aria-controls="s2">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="s2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#s3" aria-expanded="false" aria-controls="s3">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="s3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
+      <% } %>
     </div>
   </div>
   <div class="jobs-container">
+    <%- include('add-interview'); %>
     <div class="accordion" id="accordionExample2">
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#j1" aria-expanded="false" aria-controls="j1">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="j1" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
+      <% for(i of interview){ %>
+        <div class="accordion-item bg-success-subtle my-2">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-<%= i._id %>" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+              <%= i.company %> - <%= i.requirement %>
+            </button>
+          </h2>
+          <div id="panelsStayOpen-<%= i._id %>" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <b>Recruitment for :</b> <%= i.requirement %>
+              <br>
+              <b>Company or Recruiter's Email :</b> <%= i.email %>
+              <br>
+              <b>Date of Interview :</b> <%= i.date.split('-').reverse().join('-') %>
+              <br>
+              <b>Openings :</b> <%= i.openings %>
+              <br>
+              <b>Location :</b> <%= i.location %>
+              <br>
+              <!-- <div class="d-flex flex-row-reverse mt-2">
+                <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a>
+              </div> -->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#j2" aria-expanded="false" aria-controls="j2">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="j2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item bg-success-subtle my-2">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#j3" aria-expanded="false" aria-controls="j3">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="j3" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
-            adds the appropriate classes that we use to style each element. These classes control the overall
-            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-            <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
+      <% } %>
     </div>
   </div>
 </main>

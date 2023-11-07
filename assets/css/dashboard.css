@@ -34,6 +34,12 @@ main {
 .accordion-button::after {
   background-color: #28851f; }
 
+.details-table {
+  width: 100%; }
+  .details-table th, .details-table td {
+    width: 25%;
+    padding: 0px 2px; }
+
 @media screen and (max-width: 600px) {
   .titles h2 {
     font-size: 2.5rem; }

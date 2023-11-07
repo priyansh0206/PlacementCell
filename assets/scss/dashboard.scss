@@ -49,6 +49,15 @@ main{
     background-color: rgb(40, 133, 31);
 }
 
+.details-table{
+    width: 100%;
+    th, td{
+        width: 25%;
+        padding: 0px 2px;
+        // border: 2px solid red;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .titles{
         h2{

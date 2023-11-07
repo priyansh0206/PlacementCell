@@ -20,12 +20,18 @@ const interviewSchema = new mongoose.Schema({
     },
     openings: {
         type: Number,
-        default: 0
+        default: 1
     },
     location: {
         type: String,
         default: "NULL"
-    }
+    },
+    students: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Student'
+        }
+    ]
 });
 
 const Interview = mongoose.model('Interview', interviewSchema);
