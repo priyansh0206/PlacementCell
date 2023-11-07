@@ -42,3 +42,8 @@ module.exports.createUser = async function (req, res) {
         return res.redirect('back');
     }
 }
+
+module.exports.createSession = async function (req, res) {
+    req.flash('success', 'Logged in Successfully');
+    return res.redirect('/dashboard');
+}
