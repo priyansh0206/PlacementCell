@@ -1,6 +1,10 @@
 .navbar-container{
     background-color: rgba(5, 100, 22, 0.8);
     .navbar-nav{
+        .name-heading{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 300;
+        }
         li{
             a{
                 color: white;
@@ -8,6 +12,17 @@
             a:hover{
                 color: black;
                 background-color: #40ef83;
+            }
+            label{
+                color: white;
+                cursor: pointer;
+            }
+            label:hover{
+                color: black;
+                background-color: #40ef83;
+            }
+            #file-upload{
+                display: none;
             }
         }
     }

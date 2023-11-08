@@ -1,7 +1,18 @@
 .navbar-container {
   background-color: rgba(5, 100, 22, 0.8); }
+  .navbar-container .navbar-nav .name-heading {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 300; }
   .navbar-container .navbar-nav li a {
     color: white; }
   .navbar-container .navbar-nav li a:hover {
     color: black;
     background-color: #40ef83; }
+  .navbar-container .navbar-nav li label {
+    color: white;
+    cursor: pointer; }
+  .navbar-container .navbar-nav li label:hover {
+    color: black;
+    background-color: #40ef83; }
+  .navbar-container .navbar-nav li #file-upload {
+    display: none; }

@@ -12,7 +12,10 @@ router.get('/sign-up', controller.signUp);
 router.get('/profile', controller.profile);
 
 router.post('/create-user', controller.createUser);
-router.post('/create-session', passport.authenticate('local', {failureRedirect: '/users/sign-in'}), controller.createSession);
+router.post('/update-user/:id', controller.updateUser);
+router.post('/update-profile/:id', controller.updateProfile);
 
+router.post('/create-session', passport.authenticate('local', {failureRedirect: '/users/sign-in'}), controller.createSession);
+router.get('/delete-session', controller.deleteSession);
 //exporting the router to index file of routes folder
 module.exports = router;

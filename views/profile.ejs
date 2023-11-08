@@ -6,31 +6,42 @@
 
 <div class="container">
 
-    <form method="POST">
+    <form method="POST" action="/users/update-user/<%= locals.user._id %>">
         <div id="buttons-menu" align="right">
             <button type="button" class="btn btn-info" id="edit">Edit Info.</button>
-            <button type="submit" class="btn btn-success" id="save">Save Info.</button>
+            <button type="submit" class="btn btn-success" id="save" disabled>Save Info.</button>
         </div>
         <br><br>
         <div>
             <label for="first_name">First Name:</label>
-            <input id="first_name" name="FirstName" type="text" placeholder="Enter...">
+            <input id="first_name" name="FirstName" type="text" placeholder="Enter the first name..." value="<%= locals.user.firstName %>" required disabled>
         </div>
         <div>
             <label for="last_name">Last Name:</label>
-            <input id="last_name" name="LastName" type="text" placeholder="Enter...">
+            <input id="last_name" name="LastName" type="text" placeholder="Enter the last name..." value="<%= locals.user.lastName %>" required disabled>
         </div>
         <div>
             <label for="phone">Contact Number:</label>
-            <input id="phone" name="Phone" type="text" placeholder="Enter...">
+            <input id="phone" name="Contact" type="text" placeholder="Enter the contact number..." value="<%= locals.user.contact %>" required disabled>
         </div>
         <div>
             <label for="email">Email :</label>
-            <input id="email" name="Email" type="email" placeholder="Enter...">
+            <input id="email" name="Email" type="email" placeholder="Enter the email..." value="<%= locals.user.email %>" required disabled>
         </div>
         <div>
             <label for="emp_id">Employee ID:</label>
-            <input id="emp_id" name="EmployeeID" type="text" placeholder="Enter...">
+            <input id="emp_id" name="EmployeeID" type="text" placeholder="Enter the employee id..." value="<%= locals.user.empID %>" required disabled>
         </div>
     </form>
 </div>
+
+<script>
+    $("#edit").click(function(){
+            $("input").prop('disabled', false);
+            var val = $("#first_name").val();
+            $("#first_name").focus().val("").val(val);
+            $("input").css('background-color', 'lightyellow');
+            $("input").css('color', 'black');
+            $("#save").prop('disabled', false);
+    });
+</script>

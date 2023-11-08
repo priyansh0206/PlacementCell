@@ -50,7 +50,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 //setup for using the assets in ejs or views
 app.use(express.static('assets'));
-
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 //setup for using the sessions in project using MongoDB
 const store = MongoStore.create({
