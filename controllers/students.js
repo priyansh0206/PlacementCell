@@ -1,5 +1,6 @@
 const Student = require('../models/student');
 const User = require('../models/user');
+const Interview = require('../models/interview');
 
 module.exports.studentProfile = async function(req, res){
     const student = await Student.find({});
@@ -53,5 +54,21 @@ module.exports.deleteStudent = async function(req, res){
 }
 
 module.exports.updateInterviews = async function(req, res){
-    console.log(req.body);
+    try {
+        const student = await Student.findById(req.body.studentID);
+        student.interviews = req.body.options;
+        await student.save();
+        for(i of req.body.options){
+            let interview = await Interview.findById(i);
+            if (!interview.students.includes(req.body.studentID)) {
+                interview.students.push(req.body.studentID);
+            }
+            await interview.save();
+        }
+        req.flash('success', 'Interviews Scheduled Successfully !');
+        return res.redirect('/dashboard');
+    } catch (error) {
+        req.flash('error', 'Something went wrong, Please try again !');
+        return res.redirect('back');
+    }
 }

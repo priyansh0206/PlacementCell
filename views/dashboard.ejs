@@ -70,6 +70,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-light">
+                          <input type="hidden" name="studentID" value="<%= s._id %>">
                           <label for="options">Select the companies for which interviews needs to be scheduled:</label>
                           <br><br>
                           <% for(i of interview){ %>
@@ -89,8 +90,8 @@
               </div>
             </div>
           </div>
-          <% } %>
-            <% } %>
+        <% } %>
+      <% } %>
     </div>
   </div>
   <div class="jobs-container">
