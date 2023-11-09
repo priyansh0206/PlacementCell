@@ -58,16 +58,22 @@ module.exports.updateInterviews = async function(req, res){
         const student = await Student.findById(req.body.studentID);
         student.interviews = req.body.options;
         await student.save();
-        for(i of req.body.options){
-            let interview = await Interview.findById(i);
-            if (!interview.students.includes(req.body.studentID)) {
-                interview.students.push(req.body.studentID);
+        
+        const interview = await Interview.find({});
+        for(i of interview){
+            if(student.interviews && student.interviews.includes(i._id)){
+                if(!i.students.includes(student._id)){
+                    i.students.push(student._id);
+                }
+            }else{
+                i.students = i.students.filter(item => item.toString() !== student._id.toString());
             }
-            await interview.save();
+            await i.save();
         }
-        req.flash('success', 'Interviews Scheduled Successfully !');
+        req.flash('success', 'Interviews Updated Successfully !');
         return res.redirect('/dashboard');
     } catch (error) {
+        console.log(error);
         req.flash('error', 'Something went wrong, Please try again !');
         return res.redirect('back');
     }

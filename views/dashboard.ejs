@@ -74,19 +74,34 @@
                           <label for="options">Select the companies for which interviews needs to be scheduled:</label>
                           <br><br>
                           <% for(i of interview){ %>
-                            <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>">
+                            <% if(i.students.includes(s._id)){ %>
+                              <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>" checked>
+                            <% }else{ %>
+                              <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>">
+                            <% } %>
                             <label for="option-<%= i._id %>"><%= i.company %> - <%= i.requirement %> | <%= i.date.split('-').reverse().join('-') %> </label>
                             <br><br>
                           <% } %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-success">Add Student</button>
+                          <button type="submit" class="btn btn-success">Update Interviews</button>
                         </div>
                       </div>
                     </form>
                   </div>
                 </div>
+                <% if (s.interviews && s.interviews.length > 0) { %>
+                  <br><br>
+                  <h5 class="text-start">Scheduled Interviews for the Student are:</h5>
+                  <ul class="scheduled-interviews">
+                    <% for(i of s.interviews){ %>  
+                      <li>
+                        <p>On <b><%= i.date.split('-').reverse().join('-') %></b> for <b><%= i.requirement %></b> at <b><%= i.company %></b></p>                    
+                      </li>
+                    <% } %>
+                  </ul>
+                <% } %> 
               </div>
             </div>
           </div>

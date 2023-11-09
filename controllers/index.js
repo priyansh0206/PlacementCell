@@ -12,9 +12,8 @@ module.exports.HomePage = function(req, res){
 }
 
 module.exports.DashBoard = async function(req, res){ 
-    const student = await Student.find({});
-    const interview = await Interview.find({});
-    // console.log(res.locals.user._id);
+    const student = await Student.find({}).populate('interviews');
+    const interview = await Interview.find({}).sort({ date: 1 });
     return res.render('dashboard', {
         title : 'Dashboard',
         student: student,
