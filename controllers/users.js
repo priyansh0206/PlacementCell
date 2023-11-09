@@ -81,8 +81,7 @@ module.exports.updateProfile = async function (req, res) {
                         try {
                             fs.unlinkSync(path.join(__dirname, "..", user.avatar));
                         } catch (error) {
-                            req.flash('error', 'Internal Error ! Please try again.');
-                            return res.redirect('back');
+                            
                         }
                     }
                     user.avatar = User.avatarPath + '\/' + req.file.filename;

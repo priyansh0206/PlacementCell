@@ -4,10 +4,12 @@ const User = require('../models/user');
 module.exports.studentProfile = async function(req, res){
     const student = await Student.find({});
     const user = await User.find({});
+    // console.log(res.locals.user);
     return res.render('student-profile', {
         title : 'Student Profile',
         student: student,
-        user: user
+        user: user,
+        locals : res.locals
     });
 }
 
@@ -48,4 +50,8 @@ module.exports.deleteStudent = async function(req, res){
         req.flash('error', 'Something went wrong, Please try again !');
         return res.redirect('back');
     }
+}
+
+module.exports.updateInterviews = async function(req, res){
+    console.log(req.body);
 }

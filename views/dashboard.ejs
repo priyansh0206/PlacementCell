@@ -10,7 +10,7 @@
     <h3>
       Students
     </h3>
-    
+
     <h3>
       Jobs / Interviews
     </h3>
@@ -21,67 +21,114 @@
   <div class="students-container">
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <% for(s of student){ %>
-        <div class="accordion-item bg-success-subtle my-2">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-<%= s._id %>" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              <%= s.name %>
-            </button>
-          </h2>
-          <div id="panelsStayOpen-<%= s._id %>" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <table class="details-table">
-                <tr>
-                  <th>Course Name</th>
-                  <th>Email</th>
-                  <th>Date of Birth</th>
-                  <th>Grades</th>
-                </tr>
-                <tr>
-                  <td><%= s.courseName %></td>
-                  <td><%= s.email %></td>
-                  <td><%= s.dob.split('-').reverse().join('-') %></td>
-                  <td><%= s.grades %></td>
-                </tr>
-              </table>
-              <br>
-              <div class="d-flex flex-row-reverse mt-2">
-                <!-- <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a> -->
+        <% if(locals.user._id==s.mentorID){ %>
+          <div class="accordion-item bg-success-subtle my-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-<%= s._id %>" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseOne">
+                <%= s.name %>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-<%= s._id %>" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <table class="details-table">
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Grades</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= s.courseName %>
+                    </td>
+                    <td>
+                      <%= s.email %>
+                    </td>
+                    <td>
+                      <%= s.dob.split('-').reverse().join('-') %>
+                    </td>
+                    <td>
+                      <%= s.grades %>
+                    </td>
+                  </tr>
+                </table>
+                <br>
+                <div class="d-flex flex-row-reverse mt-2">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop-<%= s._id %>"><b>Schedule Interview</b></button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop-<%= s._id %>" data-bs-backdrop="static"
+                  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <form action="/students/update-interviews" method="POST">
+                      <div class="modal-content bg-dark" style="opacity: 0.9;">
+                        <div class="modal-header">
+                          <h1 class="modal-title text-light fs-5" id="staticBackdropLabel">Enter Student Detials</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-light">
+                          <label for="options">Select the companies for which interviews needs to be scheduled:</label>
+                          <br><br>
+                          <% for(i of interview){ %>
+                            <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>">
+                            <label for="option-<%= i._id %>"><%= i.company %> - <%= i.requirement %> | <%= i.date.split('-').reverse().join('-') %> </label>
+                            <br><br>
+                          <% } %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-success">Add Student</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% } %>
+          <% } %>
+            <% } %>
     </div>
   </div>
   <div class="jobs-container">
     <%- include('add-interview'); %>
-    <div class="accordion" id="accordionExample2">
-      <% for(i of interview){ %>
-        <div class="accordion-item bg-success-subtle my-2">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-<%= i._id %>" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              <%= i.company %> - <%= i.requirement %>
-            </button>
-          </h2>
-          <div id="panelsStayOpen-<%= i._id %>" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <b>Recruitment for :</b> <%= i.requirement %>
-              <br>
-              <b>Company or Recruiter's Email :</b> <%= i.email %>
-              <br>
-              <b>Date of Interview :</b> <%= i.date.split('-').reverse().join('-') %>
-              <br>
-              <b>Openings :</b> <%= i.openings %>
-              <br>
-              <b>Location :</b> <%= i.location %>
-              <br>
-              <!-- <div class="d-flex flex-row-reverse mt-2">
+      <div class="accordion" id="accordionExample2">
+        <% for(i of interview){ %>
+          <div class="accordion-item bg-success-subtle my-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-<%= i._id %>" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseOne">
+                <%= i.company %> - <%= i.requirement %>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-<%= i._id %>" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <b>Recruitment for :</b>
+                <%= i.requirement %>
+                  <br>
+                  <b>Company or Recruiter's Email :</b>
+                  <%= i.email %>
+                    <br>
+                    <b>Date of Interview :</b>
+                    <%= i.date.split('-').reverse().join('-') %>
+                      <br>
+                      <b>Openings :</b>
+                      <%= i.openings %>
+                        <br>
+                        <b>Location :</b>
+                        <%= i.location %>
+                          <br>
+                          <!-- <div class="d-flex flex-row-reverse mt-2">
                 <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a>
               </div> -->
+              </div>
             </div>
           </div>
-        </div>
-      <% } %>
-    </div>
+          <% } %>
+      </div>
   </div>
 </main>

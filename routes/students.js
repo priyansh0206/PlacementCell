@@ -9,6 +9,7 @@ const controller = require('../controllers/students');
 router.get('/profile', controller.studentProfile);
 router.post('/create-student', controller.createStudent);
 router.get('/delete-student/:id', controller.deleteStudent);
+router.post('/update-interviews', controller.updateInterviews);
 
 //exporting the router to index file of routes folder
 module.exports = router;

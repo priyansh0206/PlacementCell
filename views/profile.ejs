@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 
 <div id="display">
-    <img src="/images/user_profile.png" alt="User Profile Picture" width="200px" height="200px">
+    <img src="<%= locals.user.avatar %>" alt="User Profile Picture" width="200px" height="200px" onerror="this.src='/images/user_profile.png';">
 </div>
 
 <div class="container">

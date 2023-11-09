@@ -39,9 +39,15 @@ const studentSchema = new mongoose.Schema({
         default: "NULL"
     },
     pincode: {
-        type: Number,
+        type: String,
         default: 0
-    }
+    },
+    interviews: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Interview'
+        }
+    ]
 });
 
 const Student = mongoose.model('Student', studentSchema);
