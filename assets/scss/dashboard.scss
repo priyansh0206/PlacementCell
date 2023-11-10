@@ -58,6 +58,20 @@ main{
     }
 }
 
+.interview-students{
+    width: 100%;
+    th, td{
+        width: 20%;
+        padding: 2px 3px;
+        border: 2px solid rgb(47, 99, 32);
+    }
+    th{
+        background-color: #3c8321;
+        color: #ffffff;
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .titles{
         h2{

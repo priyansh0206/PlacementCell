@@ -26,3 +26,15 @@ module.exports.createInterview = async function (req, res) {
         return res.redirect('back');
     }
 }
+
+module.exports.deleteInterview = async function(req, res){
+    try {
+        console.log(req.params.id)
+        await Interview.deleteOne({_id: req.params.id});
+        req.flash('success', 'Interview Deleted Successfully !');
+        return res.redirect('/dashboard');
+    } catch (error) {
+        req.flash('error', 'Something went wrong, Please try again !');
+        return res.redirect('back');
+    }
+}

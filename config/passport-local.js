@@ -54,7 +54,16 @@ passport.checkAuthentication = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    return res.redirect('/users/sign-in');
+    req.flash('error', 'Please Sign In First !');
+    return res.redirect('/');
+}
+
+passport.checkUnAuthentication = function(req, res, next){
+    if(!(req.isAuthenticated())){
+        return next();
+    }
+    req.flash('error', 'Please Logout First !');
+    return res.redirect('/dashboard');
 }
 
 //for setting up the authenticated user

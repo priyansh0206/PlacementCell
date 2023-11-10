@@ -14,7 +14,7 @@
                 <% if(locals.user){ %>
                     <ul class="navbar-nav ms-auto me-3 my-4 my-lg-0">
                         <h3 class="text-light mx-3 my-auto name-heading">Hi, <%= locals.user.firstName %></h3>
-                        <img class="mx-2" src="<%= locals.user.avatar %>" alt="User Profile" height="40px" width="40px" onerror="this.src='/images/user_profile.png';">
+                        <img class="mx-2 rounded-5" src="<%= locals.user.avatar %>" alt="User Profile" height="40px" width="40px" onerror="this.src='/images/user_profile.png';">
                         <li class="nav-item dropdown mx-2">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">

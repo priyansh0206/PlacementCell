@@ -20,7 +20,7 @@
 <main>
   <div class="students-container">
     <div class="accordion" id="accordionPanelsStayOpenExample">
-      <% for(s of student){ %>
+      <% for(let s of student){ %>
         <% if(locals.user._id==s.mentorID){ %>
           <div class="accordion-item bg-success-subtle my-2">
             <h2 class="accordion-header">
@@ -73,15 +73,15 @@
                           <input type="hidden" name="studentID" value="<%= s._id %>">
                           <label for="options">Select the companies for which interviews needs to be scheduled:</label>
                           <br><br>
-                          <% for(i of interview){ %>
-                            <% if(i.students.includes(s._id)){ %>
-                              <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>" checked>
-                            <% }else{ %>
-                              <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>">
-                            <% } %>
-                            <label for="option-<%= i._id %>"><%= i.company %> - <%= i.requirement %> | <%= i.date.split('-').reverse().join('-') %> </label>
-                            <br><br>
-                          <% } %>
+                          <% for(let i of interview){ %>
+                            <% let isChecked=s.interviews && s.interviews.some(interview=> interview.equals(i._id)); %>
+                              <input type="checkbox" id="option-<%= i._id %>" name="options" value="<%= i._id %>"
+                                <%=isChecked ? 'checked' : '' %>>
+                              <label for="option-<%= i._id %>">
+                                <%= i.company %> - <%= i.requirement %> | <%= i.date.split('-').reverse().join('-') %>
+                              </label>
+                              <br><br>
+                              <% } %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -91,28 +91,34 @@
                     </form>
                   </div>
                 </div>
-                <% if (s.interviews && s.interviews.length > 0) { %>
+                <% if (s.interviews && s.interviews.length> 0) { %>
                   <br><br>
                   <h5 class="text-start">Scheduled Interviews for the Student are:</h5>
                   <ul class="scheduled-interviews">
-                    <% for(i of s.interviews){ %>  
+                    <% for(i of s.interviews){ %>
                       <li>
-                        <p>On <b><%= i.date.split('-').reverse().join('-') %></b> for <b><%= i.requirement %></b> at <b><%= i.company %></b></p>                    
+                        <p>On <b>
+                            <%= i.date.split('-').reverse().join('-') %>
+                          </b> for <b>
+                            <%= i.requirement %>
+                          </b> at <b>
+                            <%= i.company %>
+                          </b></p>
                       </li>
-                    <% } %>
+                      <% } %>
                   </ul>
-                <% } %> 
+                  <% } %>
               </div>
             </div>
           </div>
-        <% } %>
-      <% } %>
+          <% } %>
+            <% } %>
     </div>
   </div>
   <div class="jobs-container">
     <%- include('add-interview'); %>
       <div class="accordion" id="accordionExample2">
-        <% for(i of interview){ %>
+        <% for(let i of interview){ %>
           <div class="accordion-item bg-success-subtle my-2">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed bg-dark text-light fs-5" type="button" data-bs-toggle="collapse"
@@ -138,9 +144,43 @@
                         <b>Location :</b>
                         <%= i.location %>
                           <br>
-                          <!-- <div class="d-flex flex-row-reverse mt-2">
-                <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a>
-              </div> -->
+                          <div class="d-flex flex-row-reverse mt-2">
+                            <a href="/jobs/delete-interview/<%= i._id %>"><button type="button"
+                                class="btn btn-danger">Delete Interview</button></a>
+                          </div>
+                          <% if (i.students && i.students.length> 0) { %>
+                            <br>
+                            <h5 class="text-start">Students registered for the Interview are:</h5>
+                            <br>
+                            <table class="interview-students">
+                              <tr>
+                                <th>Student Name</th>
+                                <th>Course Enrolled</th>
+                                <th>Email</th>
+                                <th>DOB</th>
+                                <th>Grades</th>
+                              </tr>
+                              <% for(let s of i.students){ %>
+                                <tr>
+                                  <td>
+                                    <%= s.name %>
+                                  </td>
+                                  <td>
+                                    <%= s.courseName %>
+                                  </td>
+                                  <td>
+                                    <%= s.email %>
+                                  </td>
+                                  <td>
+                                    <%= s.dob %>
+                                  </td>
+                                  <td>
+                                    <%= s.grades %>
+                                  </td>
+                                </tr>
+                                <% } %>
+                            </table>
+                            <% } %>
               </div>
             </div>
           </div>
