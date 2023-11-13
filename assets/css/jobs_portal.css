@@ -1,0 +1,103 @@
+.search-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px auto; }
+  .search-container #job-search-box {
+    width: 60%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: transparent;
+    color: white; }
+
+#search-results {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style: none; }
+  #search-results li {
+    width: 26%;
+    box-sizing: border-box; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; }
+  .card-body .job-details {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    width: 100%; }
+    .card-body .job-details li {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: justify; }
+
+#loading-screen {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000; }
+  #loading-screen .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    width: 100%;
+    flex-direction: column; }
+    .search-container #job-search-box {
+      width: 95%;
+      font-size: 1.2rem;
+      margin: 20px 0px; } }
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    width: 100%;
+    flex-direction: column; }
+    .search-container #job-search-box {
+      width: 95%;
+      font-size: 1rem;
+      margin: 20px 0px; }
+  #search-results li {
+    width: 80%; } }
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .search-container {
+    width: 90%;
+    flex-direction: row; }
+    .search-container #job-search-box {
+      width: 75%;
+      font-size: 1.3rem;
+      margin: 0px 20px; }
+  #search-results li {
+    width: 40%; } }
