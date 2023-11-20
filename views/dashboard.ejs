@@ -147,12 +147,16 @@
                           <div class="d-flex flex-row-reverse mt-2">
                             <a href="/jobs/delete-interview/<%= i._id %>"><button type="button"
                                 class="btn btn-danger">Delete Interview</button></a>
+                            <% if (i.students && i.students.length> 0) { %>    
+                              <button type="button"
+                            class="btn btn-info mx-2" onclick="exportToCsv('table-<%= i._id %>', '<%= i.company + ' - ' + i.requirement %>')">Export to CSV</button>
+                            <% } %>    
                           </div>
                           <% if (i.students && i.students.length> 0) { %>
                             <br>
                             <h5 class="text-start">Students registered for the Interview are:</h5>
                             <br>
-                            <table class="interview-students">
+                            <table id="table-<%= i._id %>" class="interview-students">
                               <tr>
                                 <th>Student Name</th>
                                 <th>Course Enrolled</th>
@@ -188,3 +192,5 @@
       </div>
   </div>
 </main>
+
+<script src="/js/dashboard.js"></script>

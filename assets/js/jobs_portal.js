@@ -95,5 +95,3 @@ async function searchAction() {
         window.alert("Server internal error please try again later !");
     }
 }
-
-console.log('hi');

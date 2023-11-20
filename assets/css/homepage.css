@@ -1,0 +1,13 @@
+main {
+  background-color: rgba(0, 0, 0, 0.301);
+  height: auto; }
+
+/* styling for the footer contact */
+.footer-tags a {
+  text-decoration: none;
+  border: 0; }
+
+.selected {
+  background-color: white;
+  color: black !important;
+  border-radius: 5rem; }
