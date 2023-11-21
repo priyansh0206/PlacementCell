@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //defining the MongoDB server from which it needs to be connected
-mongoose.connect('mongodb://127.0.0.1:27017/PlacementCell');
+mongoose.connect('mongodb+srv://priyanshadmin:admin@clustermain.vvg6gyt.mongodb.net/PlacementCell?retryWrites=true&w=majority');
 
 //assigning variable for Mongo Connection
 const db = mongoose.connection;
