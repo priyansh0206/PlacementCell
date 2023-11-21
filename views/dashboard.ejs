@@ -54,6 +54,20 @@
                     </td>
                   </tr>
                 </table>
+                <div class="details-desc">
+                  <b>Course Name :</b>
+                  <%= s.courseName %>
+                  <br>
+                  <b>Email :</b>
+                  <%= s.email %>
+                  <br>
+                  <b>Date of Birth :</b>
+                  <%= s.dob.split('-').reverse().join('-') %>
+                  <br>
+                  <b>Grades :</b>
+                  <%= s.grades %>
+                  <br>
+                </div>
                 <br>
                 <div class="d-flex flex-row-reverse mt-2">
                   <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
@@ -184,7 +198,12 @@
                                 </tr>
                                 <% } %>
                             </table>
+                            <% for(let s of i.students){ %>
+                            <ul class="interview-details">
+                              <li><%= s.name %></li>
+                            </ul>
                             <% } %>
+                          <% } %>
               </div>
             </div>
           </div>

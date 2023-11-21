@@ -40,7 +40,11 @@ main {
     width: 25%;
     padding: 0px 2px; }
 
+.details-desc {
+  display: none; }
+
 .interview-students {
+  display: block;
   width: 100%; }
   .interview-students th, .interview-students td {
     width: 20%;
@@ -51,8 +55,21 @@ main {
     color: #ffffff;
     text-align: center; }
 
+.interview-details {
+  display: none; }
+
 @media screen and (max-width: 600px) {
   .titles h2 {
     font-size: 2.5rem; }
   .titles h3 {
     font-size: 1.2rem; } }
+
+@media screen and (max-width: 1100px) {
+  .details-desc {
+    display: block; }
+  .details-table {
+    display: none; }
+  .interview-details {
+    display: block; }
+  .interview-students {
+    display: none; } }

@@ -72,6 +72,16 @@
               </tr>
             </table>
             <br>
+            <ul class="details-list">
+              <li><b>Course Name: </b> <%= s.courseName %></li>
+              <li><b>Mentor Name: </b> <%= s.mentorName %></li>
+              <li><b>Email: </b> <%= s.email %></li>
+              <li><b>Date of Birth: </b> <%= s.dob.split('-').reverse().join('-') %></li>
+              <li><b>Grades: </b> <%= s.grades %></li>
+              <li><b>Address: </b> <%= s.address %></li>
+              <li><b>City: </b> <%= s.city %></li>
+              <li><b>Pincode: </b> <%= s.pincode %></li>
+            </ul>
             <div class="d-flex flex-row-reverse mt-2">
               <a href="/students/delete-student/<%= s._id %>"><button type="button" class="btn btn-danger">Delete Record</button></a>
             </div>

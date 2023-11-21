@@ -3,3 +3,12 @@
   .details-table th, .details-table td {
     width: 12.5%;
     padding: 0px 2px; }
+
+.details-list {
+  display: none; }
+
+@media screen and (max-width: 1000px) {
+  .details-table {
+    display: none; }
+  .details-list {
+    display: block; } }
