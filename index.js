@@ -54,7 +54,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 //setup for using the sessions in project using MongoDB
 const store = MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/PlacementCell', // Replace with your MongoDB connection URL
+    mongoUrl: 'mongodb+srv://priyanshadmin:admin@clustermain.vvg6gyt.mongodb.net/PlacementCell?retryWrites=true&w=majority', // Replace with your MongoDB connection URL
     collectionName: 'sessions', // Optional: Specify the name of the collection (default is 'sessions')
     autoRemove: 'disabled', // Optional: Disable automatic session removal
 });
