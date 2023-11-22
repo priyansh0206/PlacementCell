@@ -42,6 +42,9 @@ main{
     }
     .jobs-container{
         width: 45%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
 
@@ -94,13 +97,17 @@ main{
 
 @media screen and (max-width: 1100px) {
     .details-desc{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        overflow-wrap: break-word;
     }
     .details-table{
         display: none;
     }
     .interview-details{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        overflow-wrap: break-word;
     }
     .interview-students{
         display: none;

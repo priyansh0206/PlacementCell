@@ -9,11 +9,26 @@
     display: none;
 }
 
+#search-student{
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    color: white;
+}
+
 @media screen and (max-width: 1000px) {
     .details-table{
         display: none;
     }
     .details-list{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        overflow-wrap: break-word;
+    }
+    #search-student{
+        font-size: 0.9rem;
     }
 }
