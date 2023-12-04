@@ -1,5 +1,7 @@
 # **URL:** https://placement-cell-tqhh.onrender.com/
 
+# **Video Demo:** https://drive.google.com/file/d/16Ooc2fBFauZZgiDkr_-xW2XrXVMiIzDB/view?usp=sharing
+
 # Make My Placements
 
 Welcome to Make My Placement, where we specialize in simplifying your data management needs. In today's fast-paced corporate world, efficient data handling is crucial, and we are here to provide the perfect solution for your company's data compilation requirements. Our mission is to empower companies to manage their data seamlessly. We understand the challenges businesses face when it comes to downloading and compiling data for various reports. Our goal is to create a user-friendly interface that allows your employees to input data effortlessly into the database and download it in CSV format, ensuring a smooth and efficient workflow.
